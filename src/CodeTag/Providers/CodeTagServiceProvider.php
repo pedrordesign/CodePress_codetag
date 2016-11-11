@@ -16,6 +16,8 @@ class CodeTagServiceProvider extends ServiceProvider
             [__DIR__ . '/../../resources/migrations' => base_path('database/migrations')],
             'migrations'
         );
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views/codetag','codetag');
+        require __DIR__ . '/../../routes.php';
 
     }
 
