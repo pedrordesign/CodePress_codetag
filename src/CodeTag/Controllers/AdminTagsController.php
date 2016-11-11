@@ -28,7 +28,6 @@ class AdminTagsController extends Controller
      */
     public function __construct(ResponseFactory $response, TagRepository $repository)
     {
-        //$this->authorize('tags_access');
         $this->response = $response;
         $this->repository = $repository;
     }
@@ -38,6 +37,7 @@ class AdminTagsController extends Controller
      */
     public function index()
     {
+        $this->authorize('tags_access');
         $tags = $this->repository->all();
         return $this->response->view('codetag::index', compact('tags'));
     }
